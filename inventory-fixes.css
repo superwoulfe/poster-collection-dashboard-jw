@@ -1,0 +1,117 @@
+/* Inventory table sizing fixes
+   The base stylesheet used width:max-content with unconstrained intrinsic column widths.
+   Long titles, artist names and venue names could therefore force the whole table wider
+   than the available page. These rules make the Inventory table fixed-layout, wrap text
+   predictably on desktop, and reduce the mobile table to the most useful summary fields. */
+
+.inventory-layout .table-card,
+.inventory-layout .tablewrap{min-width:0;max-width:100%;}
+.inventory-layout .tablewrap{overflow-x:auto;overscroll-behavior-x:contain;}
+.inventory-layout .table-card table{
+  width:100%;
+  min-width:0;
+  table-layout:fixed;
+}
+.inventory-layout .table-card th,
+.inventory-layout .table-card td{
+  min-width:0;
+  max-width:none;
+  overflow-wrap:anywhere;
+  word-break:normal;
+}
+.inventory-layout .table-card th{
+  white-space:normal;
+  line-height:1.15;
+}
+.inventory-layout .table-card td{
+  white-space:normal;
+}
+.inventory-layout .table-card .money{
+  white-space:nowrap;
+}
+.inventory-layout .table-card .titlecell{
+  max-width:none;
+}
+
+/* Desktop allocation: compact data columns; more room for title, artist and venue. */
+.inventory-layout .table-card th:nth-child(1),
+.inventory-layout .table-card td:nth-child(1){width:20%;}
+.inventory-layout .table-card th:nth-child(2),
+.inventory-layout .table-card td:nth-child(2){width:11%;}
+.inventory-layout .table-card th:nth-child(3),
+.inventory-layout .table-card td:nth-child(3){width:11%;}
+.inventory-layout .table-card th:nth-child(4),
+.inventory-layout .table-card td:nth-child(4){width:5%;}
+.inventory-layout .table-card th:nth-child(5),
+.inventory-layout .table-card td:nth-child(5){width:8%;}
+.inventory-layout .table-card th:nth-child(6),
+.inventory-layout .table-card td:nth-child(6){width:8%;}
+.inventory-layout .table-card th:nth-child(7),
+.inventory-layout .table-card td:nth-child(7){width:4%;}
+.inventory-layout .table-card th:nth-child(8),
+.inventory-layout .table-card td:nth-child(8){width:4%;}
+.inventory-layout .table-card th:nth-child(9),
+.inventory-layout .table-card td:nth-child(9){width:6%;}
+.inventory-layout .table-card th:nth-child(10),
+.inventory-layout .table-card td:nth-child(10){width:5%;}
+.inventory-layout .table-card th:nth-child(11),
+.inventory-layout .table-card td:nth-child(11){width:11%;}
+.inventory-layout .table-card th:nth-child(12),
+.inventory-layout .table-card td:nth-child(12){width:7%;}
+
+@media(max-width:1180px){
+  .inventory-layout .table-card th,
+  .inventory-layout .table-card td{padding-left:6px;padding-right:6px;}
+}
+
+@media(max-width:820px){
+  /* Mobile summary view: row tap still exposes all record details in the preview/ledger,
+     while the table itself stays readable without a multi-screen horizontal scroll. */
+  .inventory-layout .tablewrap{overflow-x:hidden;}
+  .inventory-layout .table-card table{width:100%;font-size:9px;}
+  .inventory-layout .table-card th,
+  .inventory-layout .table-card td{padding:7px 5px;}
+
+  /* Hide lower-priority columns: Musical Artist, Edition, No., Run, Condition, Framed, Venue. */
+  .inventory-layout .table-card th:nth-child(3),
+  .inventory-layout .table-card td:nth-child(3),
+  .inventory-layout .table-card th:nth-child(6),
+  .inventory-layout .table-card td:nth-child(6),
+  .inventory-layout .table-card th:nth-child(7),
+  .inventory-layout .table-card td:nth-child(7),
+  .inventory-layout .table-card th:nth-child(8),
+  .inventory-layout .table-card td:nth-child(8),
+  .inventory-layout .table-card th:nth-child(9),
+  .inventory-layout .table-card td:nth-child(9),
+  .inventory-layout .table-card th:nth-child(10),
+  .inventory-layout .table-card td:nth-child(10),
+  .inventory-layout .table-card th:nth-child(11),
+  .inventory-layout .table-card td:nth-child(11){display:none;}
+
+  /* Visible mobile columns: Title / Artist / Year / Variant / Collector Value */
+  .inventory-layout .table-card th:nth-child(1),
+  .inventory-layout .table-card td:nth-child(1){width:41%;}
+  .inventory-layout .table-card th:nth-child(2),
+  .inventory-layout .table-card td:nth-child(2){width:20%;}
+  .inventory-layout .table-card th:nth-child(4),
+  .inventory-layout .table-card td:nth-child(4){width:9%;}
+  .inventory-layout .table-card th:nth-child(5),
+  .inventory-layout .table-card td:nth-child(5){width:17%;}
+  .inventory-layout .table-card th:nth-child(12),
+  .inventory-layout .table-card td:nth-child(12){width:13%;font-size:8.5px;}
+}
+
+@media(max-width:430px){
+  .inventory-layout .table-card th,
+  .inventory-layout .table-card td{padding:6px 4px;}
+  .inventory-layout .table-card th:nth-child(1),
+  .inventory-layout .table-card td:nth-child(1){width:43%;}
+  .inventory-layout .table-card th:nth-child(2),
+  .inventory-layout .table-card td:nth-child(2){width:19%;}
+  .inventory-layout .table-card th:nth-child(4),
+  .inventory-layout .table-card td:nth-child(4){width:9%;}
+  .inventory-layout .table-card th:nth-child(5),
+  .inventory-layout .table-card td:nth-child(5){width:17%;}
+  .inventory-layout .table-card th:nth-child(12),
+  .inventory-layout .table-card td:nth-child(12){width:12%;}
+}
