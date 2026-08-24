@@ -33,6 +33,11 @@
   max-width:none;
 }
 
+/* Mockup 3: poster-shaped collector badge. */
+.poster-badge{width:82px!important;height:102px!important;display:block;}
+.poster-badge.small{width:46px!important;height:58px!important;}
+.poster-badge.tiny{width:31px!important;height:39px!important;}
+
 /* Desktop allocation: compact data columns; more room for title, artist and venue. */
 .inventory-layout .table-card th:nth-child(1),
 .inventory-layout .table-card td:nth-child(1){width:20%;}
@@ -65,14 +70,11 @@
 }
 
 @media(max-width:820px){
-  /* Mobile summary view: row tap still exposes all record details in the preview/ledger,
-     while the table itself stays readable without a multi-screen horizontal scroll. */
   .inventory-layout .tablewrap{overflow-x:hidden;}
   .inventory-layout .table-card table{width:100%;font-size:9px;}
   .inventory-layout .table-card th,
   .inventory-layout .table-card td{padding:7px 5px;}
 
-  /* Hide lower-priority columns: Musical Artist, Edition, No., Run, Condition, Framed, Venue. */
   .inventory-layout .table-card th:nth-child(3),
   .inventory-layout .table-card td:nth-child(3),
   .inventory-layout .table-card th:nth-child(6),
@@ -88,7 +90,6 @@
   .inventory-layout .table-card th:nth-child(11),
   .inventory-layout .table-card td:nth-child(11){display:none;}
 
-  /* Visible mobile columns: Title / Artist / Year / Variant / Collector Value */
   .inventory-layout .table-card th:nth-child(1),
   .inventory-layout .table-card td:nth-child(1){width:41%;}
   .inventory-layout .table-card th:nth-child(2),
