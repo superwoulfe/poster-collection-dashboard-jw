@@ -33,10 +33,13 @@
   max-width:none;
 }
 
-/* Mockup 3: poster-shaped collector badge. */
-.poster-badge{width:82px!important;height:102px!important;display:block;}
-.poster-badge.small{width:46px!important;height:58px!important;}
-.poster-badge.tiny{width:31px!important;height:39px!important;}
+/* Selected Mockup 3 circular badge: preserve supplied artwork, replace only center initials. */
+.collector-badge{position:relative;width:112px;height:100px;display:block;overflow:hidden;}
+.collector-badge img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;filter:contrast(1.04) saturate(1.03);}
+.collector-badge .badge-initials{position:absolute;left:50%;top:49%;transform:translate(-50%,-50%);width:45px;height:34px;border-radius:50%;background:#090b0b;display:flex;align-items:center;justify-content:center;color:#d7b36a;font-family:Georgia,"Times New Roman",serif;font-size:25px;line-height:1;font-weight:500;letter-spacing:-1px;text-shadow:0 0 1px #000;}
+.poster-badge{width:112px!important;height:100px!important;}
+.poster-badge.small{width:62px!important;height:55px!important;}
+.poster-badge.tiny{width:43px!important;height:38px!important;}
 
 /* Desktop allocation: compact data columns; more room for title, artist and venue. */
 .inventory-layout .table-card th:nth-child(1),
